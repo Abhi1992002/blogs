@@ -1,0 +1,31 @@
+- computer need to store number in storage , so it firstly check if it is an integer or not and sometime encounter issues with roundoff , overflow and precision of numeric values
+- integer => which is not in fraction
+- How does a computer store number in memory -> firstly we covert a integer in sequence of 0s and 1s
+
+#### Overflow
+
+- suppose if a computer has only 4 bits and 1 bit is used to tell if it is + or - , now we have 3 bits , so maximum number we could store is 7.
+- If we have 4 bit computer and we run this function
+
+```js
+var x = 7;
+var y = x + 1;
+```
+
+- here , max number this computer can handle is 7 and we are giving him 8, now our computer here can do 3 things -> "overflow error", "number is too large", "truncate our 8 to 7" , "or 8 becomes 1".
+- so before coding understand the limitation of your language and computer
+- modern day computer uses 64 bit (8 byte) architecture which could store 9 quitrillion numbers (means a integer can take maximum 8 byte of storage)
+- example -> youtube used to store views of youtube video in 32 bit integer and gangam style reaches 2.1 billion and youtube views crashed.
+- in javascript some intersting stuff happens `println(Number.MAX_SAFE_INTEGER);`, it gives maximum number , if we increase small number than this , it still give us same integer and if you give him very large , it gives infinity
+
+#### Floating
+
+- we see there is an limitation in storing integer and it is even trickier in fractions
+- computer covert , every number in form of 2^n, like `160 = 1.25 * 2^7 ` or `0.5 = 1 * 2 ^ -1*`
+- so computer uses 1 bit for sign , 11 for exponent , and 52 for bits
+- Floating point representation -> tell us how to store decimals
+
+#### Roundoff error
+
+- we could store fraction that are fixed , like 1.8, but we could get roundoff error for fraction which goes upto infinity like `1/3 = 0.33333333...... ` , even if we store `1/10 = 0.10000000.....`
+- in 64 bits , it goes upto 17 decimal places (so it could fulfill 64 architecture limitation)
